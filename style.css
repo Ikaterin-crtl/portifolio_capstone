@@ -239,6 +239,15 @@ header.welcome h1 {
     transition: filter 0.3s; /* Efeito de transição para o brilho */
 }
 
+.project-image-custom {
+    width: calc(100% - 20px); /* Imagem ocupa quase toda a largura, com 4 dedos de margem */
+    height: 150px; /* Altura reduzida para 150px */
+    object-fit: contain; /* Mantém a proporção da imagem sem cortar */
+    margin: 0; /* Remove espaçamento lateral */
+    transition: filter 0.3s; /* Efeito de transição para o brilho */
+}
+
+
 .project-description {
     padding: 1rem; /* Espaçamento interno para a descrição */
     color: white; /* Texto branco */
@@ -304,33 +313,14 @@ header.welcome h1 {
     font-size: 14px; /* Tamanho da fonte */
 }
 
-.language-switch {
-    display: inline-flex; /* Exibe os botões lado a lado */
-    gap: 10px; /* Espaçamento entre os botões */
-    margin: 20px 0; /* Margem superior e inferior */
-    justify-content: center; /* Centraliza os botões */
+/* Efeito de Hover nos Botões */
+.language-switcher .btn {
+    transition: transform 0.3s ease, background 0.3s ease, filter 0.3s ease;
 }
 
-.language-switch button {
-    background-color: #B336FF; /* Cor roxa */
-    color: white; /* Cor do texto */
-    border: none; /* Remove borda padrão */
-    border-radius: 20px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    font-family: 'Bebas Neue', sans-serif; /* Fonte do botão */
-    font-size: 1rem; /* Tamanho do texto */
-    cursor: pointer; /* Mostra o cursor de clique */
-    transition: transform 0.3s, background-color 0.3s; /* Transição suave */
-}
-
-.language-switch button:hover {
-    background-color: #8a29c9; /* Cor mais escura ao passar o mouse */
-    transform: scale(1.1); /* Efeito de zoom */
-    box-shadow: 0 4px 10px rgba(179, 54, 255, 0.5); /* Efeito de brilho */
-}
-
-.language-switch button.active {
-    background-color: #6f42c1; /* Cor de destaque para o botão ativo */
-    font-weight: bold; /* Destaca o texto do botão ativo */
-    cursor: default; /* Remove o efeito de clique para o ativo */
+.language-switcher .btn:hover {
+    transform: scale(1.05); /* Leve aumento */
+    background: rgba(128, 0, 128, 0.1); /* Sombra leve na cor do fundo */
+    border-color: rgba(128, 0, 128, 1); /* Brilho roxo nas bordas */
+    filter: brightness(1.2); /* Aumenta o brilho */
 }
