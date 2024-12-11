@@ -35,6 +35,20 @@ header.welcome h1 {
     }
 }
 
+.about-me h2.purple,
+.about-me p span {
+    display: block;  /* Garanta que os elementos são exibidos corretamente */
+}
+
+.about-me p span {
+    margin-bottom: 10px;  /* Ajuste de espaçamento entre os spans */
+}
+
+.programmer {
+    text-align: center;  /* Ajuste o alinhamento do título */
+}
+
+
 /* Títulos da apresentação */
 #title {
     font-family: 'Bebas Neue', sans-serif;
@@ -43,7 +57,7 @@ header.welcome h1 {
 }
 
 #programmer {
-    font-weight: 100; /* Peso da fonte */
+    font-weight: 100; /* Peso da fonte */   
 }
 
 /* Estilo da apresentação */
@@ -72,6 +86,10 @@ header.welcome h1 {
     .profile-icon {
         width: 80px; /* Reduz o tamanho da imagem do perfil */
         height: 80px;
+    }
+    #programmer {
+        font-weight: 100; /* Peso da fonte */
+        text-align: center;   
     }
 }
 
@@ -284,4 +302,35 @@ header.welcome h1 {
 .footer p {
     margin: 5px 0; /* Margem em cima e embaixo dos parágrafos */
     font-size: 14px; /* Tamanho da fonte */
+}
+
+.language-switch {
+    display: inline-flex; /* Exibe os botões lado a lado */
+    gap: 10px; /* Espaçamento entre os botões */
+    margin: 20px 0; /* Margem superior e inferior */
+    justify-content: center; /* Centraliza os botões */
+}
+
+.language-switch button {
+    background-color: #B336FF; /* Cor roxa */
+    color: white; /* Cor do texto */
+    border: none; /* Remove borda padrão */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    font-family: 'Bebas Neue', sans-serif; /* Fonte do botão */
+    font-size: 1rem; /* Tamanho do texto */
+    cursor: pointer; /* Mostra o cursor de clique */
+    transition: transform 0.3s, background-color 0.3s; /* Transição suave */
+}
+
+.language-switch button:hover {
+    background-color: #8a29c9; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.1); /* Efeito de zoom */
+    box-shadow: 0 4px 10px rgba(179, 54, 255, 0.5); /* Efeito de brilho */
+}
+
+.language-switch button.active {
+    background-color: #6f42c1; /* Cor de destaque para o botão ativo */
+    font-weight: bold; /* Destaca o texto do botão ativo */
+    cursor: default; /* Remove o efeito de clique para o ativo */
 }
