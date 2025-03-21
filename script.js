@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Força a posição fixa do container da lâmpada
+    const lampContainer = document.querySelector('.lamp-container');
+    if (lampContainer) {
+        lampContainer.style.position = "fixed";
+        lampContainer.style.top = "6rem";
+        lampContainer.style.right = "20px";
+    }
+
     const body = document.body;
     const lightOff = document.getElementById('lightOff');
     const lightOn = document.getElementById('lightOn');
     const interruptorIcon = document.getElementById('interruptorIcon');
 
-    const interruptorStatic = "/trocar-removebg-preview.png";
-    const interruptorAnimated = "/on-off-unscreen.gif";
+    // Ajuste os caminhos conforme sua estrutura de pastas!
+    const interruptorStatic = "./trocar-removebg-preview.png";
+    const interruptorAnimated = "./on-off-unscreen.gif";
+
+    const lightOnImage = "./light_bulb_on.png";
+    const lightOffImage = "./light_bulb_off.png";
 
     // ==========================
     // 🔸 LÂMPADA: Começa apagada
@@ -19,9 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
         body.classList.replace('light-off', 'light-on');
         lightOff.style.display = "none";
         lightOn.style.display = "block";
-        lightOn.classList.add("animate-swing"); // Adiciona a classe para o balanço
+        lightOn.classList.remove("animate-swing");
+        void lightOn.offsetWidth; // Força reflow para reiniciar a animação
+        lightOn.classList.add("animate-swing"); // Ativa a animação de balanço
     }, 2500);
-    
+
     // ==========================
     // 🔸 INTERRUPTOR
     // ==========================
@@ -40,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lightOff.style.display = "none";
             lightOn.style.display = "block";
 
-            // Anima novamente ao acender
+            // Reaplica a animação de balanço ao acender
             lightOn.classList.remove("animate-swing");
             void lightOn.offsetWidth;
             lightOn.classList.add("animate-swing");

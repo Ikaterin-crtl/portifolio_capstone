@@ -314,22 +314,22 @@ header.welcome h1 {
 }
 
 /* ======================================
-   💡 LÂMPADA (ON e OFF)
+   💡 LÂMPADA (ON e OFF) - FIXA NA TELA
 ====================================== */
-
 .lamp-container {
-    position: fixed; /* Fixa a lâmpada na tela */
-    top: 6rem;  /* Define a posição do topo */
-    right: 20px; /* Mantém no canto direito */
+    position: fixed;           /* Fixa o container na tela */
+    top: 6rem;                 /* Distância do topo */
+    right: 20px;               /* Distância do lado direito */
     display: inline-block;
-    width: 12rem;
+    width: 12rem;              /* Largura fixa do container */
     height: auto;
-    z-index: 3000; /* Garante que fique acima de tudo */
+    z-index: 3000;             /* Garante que fique acima de outros elementos */
+    overflow: visible;
 }
 
-/* 🔹 Mantém as lâmpadas alinhadas e visíveis */
+/* 🔹 As duas lâmpadas ocupam todo o espaço do container e ficam sobrepostas */
 #lightOff, #lightOn {
-    width: 100%;
+    width: 100%;               /* 100% do container (12rem) */
     height: auto;
     position: absolute;
     top: 0;
@@ -337,12 +337,10 @@ header.welcome h1 {
     z-index: 1000;
 }
 
-/* 🔹 Garante que a lâmpada apagada começa visível */
+/* 🔹 Exibe a lâmpada apagada e esconde a acesa no modo OFF */
 body.light-off #lightOff {
     display: block;
 }
-
-/* 🔹 Garante que a lâmpada acesa começa escondida */
 body.light-off #lightOn {
     display: none;
 }
@@ -351,12 +349,11 @@ body.light-off #lightOn {
 body.light-on #lightOn {
     display: block;
 }
-
 body.light-on #lightOff {
     display: none;
 }
 
-/* 🔹 Animação do balanço (ativa só no modo ON) */
+/* 🔹 Animação de balanço para a lâmpada acesa (apenas quando a classe .animate-swing é aplicada) */
 body.light-on #lightOn.animate-swing {
     animation: swingOnly 2s ease-in-out 2;
 }
@@ -369,7 +366,14 @@ body.light-on #lightOn.animate-swing {
     100% { transform: rotate(0deg); }
 }
 
-/* 🔹 Garante que o interruptor sempre esteja visível */
+/* 🔹 Remove qualquer elemento extra (como o risquinho do bocal) */
+.lamp-container::before {
+    display: none;
+}
+
+/* ======================================
+   🔘 INTERRUPTOR
+====================================== */
 .interruptor-icon {
     position: absolute;
     top: 3rem;
@@ -443,18 +447,19 @@ body.light-off a {
     .lamp-container {
         top: 6rem;
         right: 10px;
+        width: 9rem;
     }
-
+    
     #lightOff, #lightOn {
-        width: 9rem; /* Reduz tamanho da lâmpada */
+        width: 100%;
     }
-
+    
     .presentation {
         margin-top: 2.5rem;
     }
 }
 
-/* ✅ Classe para ativar balanço */
+/* ✅ Classe para ativar balanço (apenas quando a lâmpada acesa deve balançar) */
 .animate-swing {
     animation: swingOnly 2s ease-in-out 2;
 }
