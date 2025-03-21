@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crafting Digital Experiences</title>
-    <link rel="stylesheet" href="style.css">  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crafting Digital Experiences</title>
+  <link rel="stylesheet" href="style.css">  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
-<body> 
-    <!-- Language Switcher -->
-    <div class="language-switcher d-flex justify-content-center mt-4">
-        <button class="btn btn-outline-light mx-2" onclick="setLanguage('pt')">Português</button>
-        <button class="btn btn-outline-light mx-2" onclick="setLanguage('en')">English</button>
+<body class="light-off">  <!-- Começa apagado -->
+
+    <!-- Botão de troca de idioma -->
+    <div id="langSwitcher">
+        <span id="globeIcon" class="globe-icon">🌍</span>
+        <div id="langMenu" class="lang-menu">
+            <a href="#" data-lang="pt">🇧🇷 PT</a>
+            <a href="#" data-lang="en">🇬🇧 EN</a>
+        </div>
     </div>
 
     <div class="head">
@@ -21,8 +25,13 @@
             <h1 class="purple" data-pt="Bem-vindo!" data-en="Welcome!">Welcome!</h1>
             <hr>
         </header>
-        <img class="light" src="./assets/Background/light bulb.png" alt="Light Bulb">
-    </div>
+
+        <div class="lamp-container">
+          <img id="lightOff" class="light" src="/assets/Background/light_bulb_off.png" alt="Lâmpada Apagada">
+          <img id="lightOn" class="light" src="/assets/Background/light_bulb_on.png" alt="Lâmpada Acesa" style="display: none;">
+          <img id="interruptorIcon" class="interruptor-icon" src="/assets/Background/trocar-removebg-preview.png" alt="Interruptor">
+        </div>
+        
 
     <div class="presentation">
         <img id="me" src="./assets/profile.png" alt="Catarina" class="profile-icon">
@@ -31,97 +40,72 @@
         </h1>        
     </div>
 
-    <div class="about-me">
-        <h2 class="purple" data-pt="Olá de Novo" data-en="Hello Again">Hello Again</h2>
-        <p>
-            <span data-pt="Sou apaixonada por desenvolver sites bonitos e funcionais que melhoram a experiência do usuário."></span>
-            <span data-en="I’m passionate about developing beautiful and functional websites that enhance user experience."></span>
-            <span data-pt="Adoro o sentimento de criar algo que não só serve a um propósito, mas também traz alegria para quem o utiliza."></span>
-            <span data-en="I love the feeling of creating something that not only serves a purpose but also brings joy to those who use it."></span>
-            <span data-pt="Seja através do meu amor pelo ciclismo, apreciando uma boa xícara de café ou passando tempo com minha maravilhosa família, eu busco inspiração em momentos do dia a dia."></span>
-            <span data-en="Whether it's through my love for cycling, savoring a good cup of coffee, or spending time with my wonderful family, I draw inspiration from everyday moments."></span>
-            <span data-pt="Como uma grande fã de filmes alternativos e com gostos musicais diversos, eu infundo meu senso estético em cada projeto que eu assumo."></span>
-            <span data-en="As a huge fan of alternative films with diverse music tastes, I infuse my aesthetic sensibility into every project I undertake."></span>
-            <span data-pt="Meu objetivo é projetar experiências únicas e pensadas, que proporcionem prazer aos usuários ao navegar pelos sites que crio."></span>
-            <span data-en="My goal is to design unique and thoughtful experiences that make users feel pleasure in navigating the sites I create."></span>
-        </p>
+  <div class="about-me">
+    <h2 class="purple" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h2>
+    <p>
+      <span data-pt="Oi, eu sou a Catarina!<br><br>Desenvolver sites para mim é mais do que uma profissão é uma forma gostosa de expressar minha criatividade e me conectar com pessoas.<br><br>Amo criar experiências digitais bonitas, intuitivas e, principalmente, divertidas.<br><br>Fora do universo da programação, você provavelmente vai me encontrar pedalando por aí, viajando para conhecer lugares novos ou curtindo parques de diversões.<br><br>Minha inspiração vem de filmes alternativos e indies, especialmente aqueles com atmosferas diferentes, além de filmes de terror e literatura gótica, paixões que carrego comigo desde sempre.<br><br>Ah, e eu divido minha vida com alguns companheiros peculiares: gatos curiosos e um peixe carnívoro cheio de personalidade, que sempre gera curiosidade nas visitas!<br><br>Em cada projeto que faço, coloco um pouco dessas coisas que amo, pois acredito que sites incríveis precisam de essência e alma."
+          data-en="Hi, I'm Catarina!<br><br>Building websites is more than just my job it's my favorite way to express creativity and connect with people.<br><br>I love creating digital experiences that are intuitive, beautiful, and genuinely fun.<br><br>Outside the coding world, you'll probably find me cycling around, traveling to discover new places, or enjoying amusement parks.<br><br>My creative side is inspired by alternative and indie films, especially those with unique atmospheres, and my lifelong passions include horror movies and gothic literature.<br><br>Oh, and I share my life with some quirky companions: curious cats and an exotic carnivorous fish that always sparks curiosity among visitors!<br><br>Each project I undertake carries a bit of these interests, as I believe incredible websites should have heart and soul."></span>
+    </p>
+  </div>
+
+  <div class="skills-container">
+    <h1 class="skills" data-pt="Minhas Habilidades" data-en="My Skills">My Skills</h1>
+
+    <div class="skill">
+      <h3 data-pt="HTML/CSS" data-en="HTML/CSS">HTML/CSS</h3>
+      <p data-pt="HTML e CSS formam a base do desenvolvimento web..." data-en="HTML and CSS form the foundation of web development..."></p>
     </div>
 
-    <div class="skills-container">
-        <h1 class="skills" data-pt="Minhas Habilidades" data-en="My Skills">My Skills</h1>
-        
-        <div class="skill">
-            <h3 data-pt="HTML/CSS" data-en="HTML/CSS">HTML/CSS</h3>
-            <p data-pt="HTML e CSS formam a base do desenvolvimento web..." data-en="HTML and CSS form the foundation of web development..."></p>
-        </div>
-
-        <div class="skill">
-            <h3 data-pt="Design & UX/UI" data-en="Design & UX/UI">Design & UX/UI</h3>
-            <p data-pt="Adoro criar interfaces que são tanto visualmente atraentes quanto amigáveis para o usuário." data-en="I love creating interfaces that are both visually appealing and user-friendly."></p>
-        </div>
-
-        <div class="skill">
-            <h3 data-pt="Java" data-en="Java Script">Java Script</h3>
-            <p data-pt="Experiência no desenvolvimento em Java Script, focando em construir aplicações robustas e escaláveis." data-en="Experience in Java development, focusing on building robust and scalable applications."></p>
-        </div>
-
-        <div class="skill">
-            <h3 data-pt="AWS Lambda" data-en="AWS Lambda">AWS Lambda</h3>
-            <p data-pt="Proficiente no uso do AWS Lambda para computação serverless, permitindo aplicações baseadas em eventos sem gerenciamento de servidores." data-en="Proficient in using AWS Lambda for serverless computing, allowing for event-driven applications without server management."></p>
-        </div>
-
-        <div class="skill">
-            <h3 data-pt="Make" data-en="Make">Make</h3>
-            <p data-pt="Conhecimento em usar Make para automatizar tarefas, otimizar construções e melhorar a eficiência do projeto." data-en="Knowledge in using Make to automate tasks, streamline builds, and improve project efficiency."></p>
-        </div>
-
-        <div class="skill">
-            <h3 data-pt="Soft Skills" data-en="Soft Skills">Soft Skills</h3>
-            <p data-pt="Fortes habilidades de comunicação, adaptabilidade, resolução de problemas e trabalho em equipe que melhoram a colaboração e o sucesso do projeto." data-en="Strong communication, adaptability, problem-solving, and teamwork skills that enhance collaboration and project success."></p>
-        </div>
+    <div class="skill">
+      <h3 data-pt="Design & UX/UI" data-en="Design & UX/UI">Design & UX/UI</h3>
+      <p data-pt="Adoro criar interfaces que são tanto visualmente atraentes quanto amigáveis para o usuário." data-en="I love creating interfaces that are both visually appealing and user-friendly."></p>
     </div>
 
-    <div class="projects-container">
-        <h1 class="projects" data-pt="Meus Projetos" data-en="My Projects">My Projects</h1>
-        
-        <div class="project">
-            <a href="https://magvel.com.br/" target="_blank">
-                <div class="project-content">
-                    <img src="./assets/features/Captura_de_tela_2024-10-28_142235-removebg-preview.png" alt="Magvel Project" class="project-image">
-                    <div class="project-description">
-                        <h3 data-pt="Magvel" data-en="Magvel">Magvel</h3>
-                        <p data-pt="Projeto profissional para uma empresa de manutenção de veículos elétricos." data-en="Professional project for a company that offers electric vehicle maintenance."></p>
-                    </div>
-                </div>
-            </a>
+    <div class="skill">
+      <h3 data-pt="Java Script" data-en="Java Script">Java Script</h3>
+      <p data-pt="Experiência no desenvolvimento em Java Script, focando em construir aplicações robustas e escaláveis." data-en="Experience in Java development, focusing on building robust and scalable applications."></p>
+    </div>
+
+    <div class="skill">
+      <h3 data-pt="AWS Lambda" data-en="AWS Lambda">AWS Lambda</h3>
+      <p data-pt="Proficiente no uso do AWS Lambda para computação serverless, permitindo aplicações baseadas em eventos sem gerenciamento de servidores." data-en="Proficient in using AWS Lambda for serverless computing, allowing for event-driven applications without server management."></p>
+    </div>
+
+
+    <div class="skill">
+      <h3 data-pt="Soft Skills" data-en="Soft Skills">Soft Skills</h3>
+      <p data-pt="Criatividade e originalidade, adaptabilidade e aprendizado constante, forte comunicação e trabalho em equipe, paixão e entusiasmo em tudo o que faço." data-en="Creativity and originality, adaptability and continuous learning, strong communication and teamwork, passion and enthusiasm in everything I do."></p>
+    </div>
+  </div>
+
+  <div class="projects-container">
+    <h1 class="projects" data-pt="Meus Projetos" data-en="My Projects">My Projects</h1>
+    
+    <div class="project">
+      <a href="https://magvel.com.br/" target="_blank">
+        <div class="project-content">
+          <img src="./assets/features/Captura_de_tela_2024-10-28_142235-removebg-preview.png" alt="Magvel Project" class="project-image">
+          <div class="project-description">
+            <h3 data-pt="Magvel" data-en="Magvel">Magvel</h3>
+            <p data-pt="Projeto profissional para uma empresa de manutenção de veículos elétricos." data-en="Professional project for a company that offers electric vehicle maintenance."></p>
+          </div>
         </div>
+      </a>
+    </div>
        
-        
-
-        <div class="contact-button">
-        <a href="mailto:catarinaneedsajob@gmail.com" class="btn btn-primary" data-pt="Entrar em contato" data-en="Contact Me">Contact Me</a>
+    <div class="contact-button">
+      <a href="mailto:catarinaneedsajob@gmail.com" class="btn btn-primary" data-pt="Entrar em contato" data-en="Contact Me">Contact Me</a>
     </div>
 
     <footer class="footer">
-        <footer>
-            <p data-pt="Criado com carinho por mim ❤️" data-en="Made with love by me ❤️">Made with love by me ❤️</p>
-            <p data-pt="Catarina Costa Andrade" data-en="Catarina Costa Andrade">Catarina Costa Andrade</p>
-        </footer>
+      <footer>
+        <p data-pt="Criado com carinho por mim ❤️" data-en="Made with love by me ❤️">Made with love by me ❤️</p>
+        <p data-pt="Catarina Costa Andrade" data-en="Catarina Costa Andrade">Catarina Costa Andrade</p>
+      </footer>
     </footer>
-
-    <script>
-        // Função para definir o idioma com base na linguagem do navegador
-        function setLanguage(lang) {
-            const elements = document.querySelectorAll('[data-pt], [data-en]');
-            elements.forEach(el => {
-                el.innerHTML = el.getAttribute(`data-${lang}`);
-            });
-        }
-    
-        // Definição automática de idioma com base na linguagem do navegador
-        const userLang = navigator.language || navigator.userLanguage;
-        setLanguage(userLang.startsWith('pt') ? 'pt' : 'en');
-    </script>
-    
+  </div>
+  
+  <!-- Inclui o script separado -->
+  <script src="script.js"></script>
 </body>
 </html>

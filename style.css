@@ -1,5 +1,5 @@
-/* Estilos gerais do corpo */
-body {
+ /* Estilos gerais do corpo */
+ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -313,14 +313,128 @@ header.welcome h1 {
     font-size: 14px; /* Tamanho da fonte */
 }
 
-/* Efeito de Hover nos Botões */
-.language-switcher .btn {
-    transition: transform 0.3s ease, background 0.3s ease, filter 0.3s ease;
+/* ======================================
+   💡 LÂMPADA (ON e OFF)
+====================================== */
+.lamp-container {
+    position: absolute;
+    top: 6rem;  /* Mantém alinhado corretamente */
+    right: 20px;
+    display: inline-block;
+    overflow: visible;
 }
 
-.language-switcher .btn:hover {
-    transform: scale(1.05); /* Leve aumento */
-    background: rgba(128, 0, 128, 0.1); /* Sombra leve na cor do fundo */
-    border-color: rgba(128, 0, 128, 1); /* Brilho roxo nas bordas */
-    filter: brightness(1.2); /* Aumenta o brilho */
+/* 🔹 Mantém as duas lâmpadas no mesmo tamanho e posição */
+#lightOff, #lightOn {
+    width: 12rem; /* Tamanho fixo */
+    height: auto;
+    position: absolute;
+}
+
+/* 🔹 Corrige a animação separando o rotate do scale */
+body.light-on #lightOn.animate-swing {
+    animation: swingOnly 2s ease-in-out 2;
+}
+
+/* 🌀 Animação do balanço */
+@keyframes swingOnly {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+
+/* ======================================
+   🔘 INTERRUPTOR
+====================================== */
+.interruptor-icon {
+    position: absolute;
+    top: 3rem;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 2000;
+}
+
+/* ======================================
+   🌙 MODO ON E OFF
+====================================== */
+body.light-on {
+    background-color: #1A191A;
+    color: whitesmoke;
+}
+
+body.light-off {
+    background-color: #000;
+    color: #0f0;
+    text-shadow: 0 0 10px #0f0;
+}
+
+body.light-off a {
+    color: #0f0;
+}
+
+/* ======================================
+   🌍 BOTÃO DE IDIOMA (GLOBO)
+====================================== */
+#langSwitcher {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 3000;
+    text-align: right;
+}
+
+.globe-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.lang-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.lang-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    font-size: 14px;
+}
+
+.lang-menu a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ======================================
+   📱 RESPONSIVIDADE
+====================================== */
+@media (max-width: 700px) {
+    .lamp-container {
+        top: 6rem;
+        right: 10px;
+    }
+
+    #lightOff, #lightOn {
+        width: 9rem; /* Reduz tamanho da lâmpada */
+    }
+
+    .presentation {
+        margin-top: 2.5rem;
+    }
+}
+
+/* ✅ Classe para ativar balanço */
+.animate-swing {
+    animation: swingOnly 2s ease-in-out 2;
 }
