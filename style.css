@@ -316,27 +316,51 @@ header.welcome h1 {
 /* ======================================
    💡 LÂMPADA (ON e OFF)
 ====================================== */
+
 .lamp-container {
-    position: absolute;
-    top: 6rem;  /* Mantém alinhado corretamente */
-    right: 20px;
+    position: fixed; /* Fixa a lâmpada na tela */
+    top: 6rem;  /* Define a posição do topo */
+    right: 20px; /* Mantém no canto direito */
     display: inline-block;
-    overflow: visible;
+    width: 12rem;
+    height: auto;
+    z-index: 3000; /* Garante que fique acima de tudo */
 }
 
-/* 🔹 Mantém as duas lâmpadas no mesmo tamanho e posição */
+/* 🔹 Mantém as lâmpadas alinhadas e visíveis */
 #lightOff, #lightOn {
-    width: 12rem; /* Tamanho fixo */
+    width: 100%;
     height: auto;
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-/* 🔹 Corrige a animação separando o rotate do scale */
+/* 🔹 Garante que a lâmpada apagada começa visível */
+body.light-off #lightOff {
+    display: block;
+}
+
+/* 🔹 Garante que a lâmpada acesa começa escondida */
+body.light-off #lightOn {
+    display: none;
+}
+
+/* 🔹 Exibe a lâmpada acesa e esconde a apagada no modo ON */
+body.light-on #lightOn {
+    display: block;
+}
+
+body.light-on #lightOff {
+    display: none;
+}
+
+/* 🔹 Animação do balanço (ativa só no modo ON) */
 body.light-on #lightOn.animate-swing {
     animation: swingOnly 2s ease-in-out 2;
 }
 
-/* 🌀 Animação do balanço */
 @keyframes swingOnly {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(10deg); }
@@ -345,11 +369,7 @@ body.light-on #lightOn.animate-swing {
     100% { transform: rotate(0deg); }
 }
 
-
-
-/* ======================================
-   🔘 INTERRUPTOR
-====================================== */
+/* 🔹 Garante que o interruptor sempre esteja visível */
 .interruptor-icon {
     position: absolute;
     top: 3rem;
@@ -357,7 +377,7 @@ body.light-on #lightOn.animate-swing {
     width: 30px;
     height: 30px;
     cursor: pointer;
-    z-index: 2000;
+    z-index: 3000;
 }
 
 /* ======================================

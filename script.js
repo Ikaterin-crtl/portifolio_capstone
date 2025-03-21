@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const lightOn = document.getElementById('lightOn');
     const interruptorIcon = document.getElementById('interruptorIcon');
 
-    const interruptorStatic = "./assets/Background/trocar-removebg-preview.png";
-    const interruptorAnimated = "./assets/Background/on-off-unscreen.gif";
+    const interruptorStatic = "/trocar-removebg-preview.png";
+    const interruptorAnimated = "/on-off-unscreen.gif";
 
     // ==========================
     // 🔸 LÂMPADA: Começa apagada
@@ -15,18 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     body.classList.add("light-off");
     body.classList.remove("light-on");
 
-    // 🔸 Após 2.5s, acende e balança 2x
     setTimeout(() => {
         body.classList.replace('light-off', 'light-on');
         lightOff.style.display = "none";
         lightOn.style.display = "block";
-
-        // Reinicia e aplica animação de balanço
-        lightOn.classList.remove("animate-swing");
-        void lightOn.offsetWidth;
-        lightOn.classList.add("animate-swing");
+        lightOn.classList.add("animate-swing"); // Adiciona a classe para o balanço
     }, 2500);
-
+    
     // ==========================
     // 🔸 INTERRUPTOR
     // ==========================
