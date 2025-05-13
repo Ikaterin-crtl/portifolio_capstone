@@ -1,95 +1,59 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Força a posição fixa do container da lâmpada
-    const lampContainer = document.querySelector('.lamp-container');
-    if (lampContainer) {
-        lampContainer.style.position = "fixed";
-        lampContainer.style.top = "6rem";
-        lampContainer.style.right = "20px";
-    }
-
-    const body = document.body;
+document.addEventListener("DOMContentLoaded", () => {
+    const body     = document.body;
     const lightOff = document.getElementById('lightOff');
-    const lightOn = document.getElementById('lightOn');
-    const interruptorIcon = document.getElementById('interruptorIcon');
-
-    // Ajuste os caminhos conforme sua estrutura de pastas!
-    const interruptorStatic = "./trocar-removebg-preview.png";
-    const interruptorAnimated = "./on-off-unscreen.gif";
-
-    const lightOnImage = "./light_bulb_on.png";
-    const lightOffImage = "./light_bulb_off.png";
-
-    // ==========================
-    // 🔸 LÂMPADA: Começa apagada
-    // ==========================
-    lightOff.style.display = "block";
-    lightOn.style.display = "none";
+    const lightOn  = document.getElementById('lightOn');
+    const switcher = document.getElementById('interruptorIcon');
+    const lamp     = document.getElementById('lamp');
+  
+    // 1) Começa apagada
     body.classList.add("light-off");
-    body.classList.remove("light-on");
-
+    lightOff.style.display = "block";
+    lightOn .style.display = "none";
+  
+    // 2) Acende após 2.5s com swing
     setTimeout(() => {
-        body.classList.replace('light-off', 'light-on');
-        lightOff.style.display = "none";
-        lightOn.style.display = "block";
-        lightOn.classList.remove("animate-swing");
-        void lightOn.offsetWidth; // Força reflow para reiniciar a animação
-        lightOn.classList.add("animate-swing"); // Ativa a animação de balanço
+      body.classList.replace('light-off','light-on');
+      lightOff.style.display = "none";
+      lightOn .style.display = "block";
+      lightOn.classList.add("animate-swing");
     }, 2500);
-
-    // ==========================
-    // 🔸 INTERRUPTOR
-    // ==========================
-    interruptorIcon.addEventListener('click', function () {
-        interruptorIcon.src = interruptorAnimated;
-        setTimeout(() => {
-            interruptorIcon.src = interruptorStatic;
-        }, 1000);
-
-        if (body.classList.contains('light-on')) {
-            body.classList.replace('light-on', 'light-off');
-            lightOn.style.display = "none";
-            lightOff.style.display = "block";
-        } else {
-            body.classList.replace('light-off', 'light-on');
-            lightOff.style.display = "none";
-            lightOn.style.display = "block";
-
-            // Reaplica a animação de balanço ao acender
-            lightOn.classList.remove("animate-swing");
-            void lightOn.offsetWidth;
-            lightOn.classList.add("animate-swing");
-        }
+  
+    // 3) Toggle lâmpada
+    switcher.addEventListener('click', () => {
+      const isOn = body.classList.toggle('light-on');
+      body.classList.toggle('light-off', !isOn);
+      lightOn .style.display = isOn ? "block" : "none";
+      lightOff.style.display = isOn ? "none"  : "block";
     });
-
-    // ==========================
-    // 🔸 IDIOMA AUTOMÁTICO
-    // ==========================
+  
+    // 4) Idioma automático
     function setLanguage(lang) {
-        const elements = document.querySelectorAll('[data-pt], [data-en]');
-        elements.forEach(el => {
-            el.innerHTML = el.getAttribute(`data-${lang}`);
-        });
+      document.querySelectorAll('[data-pt],[data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute(`data-${lang}`);
+      });
     }
-
-    const userLang = navigator.language || navigator.userLanguage;
-    setLanguage(userLang.startsWith('pt') ? 'pt' : 'en');
-
-    // ==========================
-    // 🔸 BOTÃO GLOBO DE IDIOMA
-    // ==========================
+    const userLang = navigator.language.startsWith('pt') ? 'pt' : 'en';
+    setLanguage(userLang);
+  
+    // 5) Toggle menu de idioma
     const globeIcon = document.getElementById('globeIcon');
-    const langMenu = document.getElementById('langMenu');
-
-    globeIcon.addEventListener('click', function () {
-        langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
+    const langMenu  = document.getElementById('langMenu');
+    globeIcon.addEventListener('click', () => {
+      langMenu.style.display = langMenu.style.display === 'block' ? 'none' : 'block';
     });
-
     langMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const lang = this.getAttribute('data-lang');
-            setLanguage(lang);
-            langMenu.style.display = 'none';
-        });
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const lang = link.getAttribute('data-lang');
+        setLanguage(lang);
+        langMenu.style.display = 'none';
+      });
     });
-});
+  
+    // 6) Hide/show lâmpada ao rolar
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) lamp.classList.add('hide');
+      else                     lamp.classList.remove('hide');
+    });
+  });
+  

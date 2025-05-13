@@ -4,47 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crafting Digital Experiences</title>
-  <link rel="stylesheet" href="style.css">  
+  <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dosis:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
-<body class="light-off">  <!-- Começa apagado -->
-
-    <!-- Botão de troca de idioma -->
-    <div id="langSwitcher">
-        <span id="globeIcon" class="globe-icon">🌍</span>
-        <div id="langMenu" class="lang-menu">
-            <a href="#" data-lang="pt">🇧🇷 PT</a>
-            <a href="#" data-lang="en">🇬🇧 EN</a>
-        </div>
+<body class="light-off">
+  <!-- Botão de troca de idioma -->
+  <div id="langSwitcher">
+    <span id="globeIcon" class="globe-icon">🌍</span>
+    <div id="langMenu" class="lang-menu">
+      <a href="#" data-lang="pt">🇧🇷 PT</a>
+      <a href="#" data-lang="en">🇬🇧 EN</a>
     </div>
+  </div>
 
-    <div class="head">
-        <header class="welcome">
-            <h1 class="purple" data-pt="Bem-vindo!" data-en="Welcome!">Welcome!</h1>
-            <hr>
-        </header>
+  <div class="head">
+    <header class="welcome">
+      <h1 class="purple" data-pt="Bem-vindo!" data-en="Welcome!">Welcome!</h1>
+      <hr>
+    </header>
 
-        <div class="lamp-container">
-          <img id="lightOff" class="light" src="./light_bulb_off.png" alt="Lâmpada Apagada">
-          <img id="lightOn" class="light" src="./light_bulb_on.png" alt="Lâmpada Acesa" style="display: none;">
-          <img id="interruptorIcon" class="interruptor-icon" src="./trocar-removebg-preview.png" alt="Interruptor">
-        </div>
-        
-
-    <div class="presentation">
-        <img id="me" src="./assets/profile.png" alt="Catarina" class="profile-icon">
-        <h1 id="title" data-pt="Oi, eu sou <span class='purple'>Catarina</span>" data-en="Hi, I'm <span class='purple'>Catarina</span>">
-            Hi, I'm <span class="purple">Catarina</span>
-        </h1>        
+    <!-- Lâmpada + interruptor -->
+    <div class="lamp-container" id="lamp">
+      <img id="lightOff" class="light" src="./light_bulb_off.png" alt="Lâmpada Apagada">
+      <img id="lightOn"  class="light" src="./light_bulb_on.png"  alt="Lâmpada Acesa" style="display: none;">
+      <img id="interruptorIcon" class="interruptor-icon" src="./trocar-removebg-preview.png" alt="Interruptor">
     </div>
+  </div>
+
+  <div class="presentation">
+    <img id="me" src="./assets/profile.png" alt="Catarina" class="profile-icon">
+    <h1 id="title"
+        data-pt="Oi, eu sou <span class='purple'>Catarina</span>"
+        data-en="Hi, I'm <span class='purple'>Catarina</span>">
+      Hi, I'm <span class="purple">Catarina</span>
+    </h1>
+    
+  </div>
 
   <div class="about-me">
     <h2 class="purple" data-pt="Sobre Mim" data-en="About Me">Sobre Mim</h2>
     <p>
-      <span data-pt="Oi, eu sou a Catarina!<br><br>Desenvolver sites para mim é mais do que uma profissão é uma forma gostosa de expressar minha criatividade e me conectar com pessoas.<br><br>Amo criar experiências digitais bonitas, intuitivas e, principalmente, divertidas.<br><br>Fora do universo da programação, você provavelmente vai me encontrar pedalando por aí, viajando para conhecer lugares novos ou curtindo parques de diversões.<br><br>Minha inspiração vem de filmes alternativos e indies, especialmente aqueles com atmosferas diferentes, além de filmes de terror e literatura gótica, paixões que carrego comigo desde sempre.<br><br>Ah, e eu divido minha vida com alguns companheiros peculiares: gatos curiosos e um peixe carnívoro cheio de personalidade, que sempre gera curiosidade nas visitas!<br><br>Em cada projeto que faço, coloco um pouco dessas coisas que amo, pois acredito que sites incríveis precisam de essência e alma."
-          data-en="Hi, I'm Catarina!<br><br>Building websites is more than just my job it's my favorite way to express creativity and connect with people.<br><br>I love creating digital experiences that are intuitive, beautiful, and genuinely fun.<br><br>Outside the coding world, you'll probably find me cycling around, traveling to discover new places, or enjoying amusement parks.<br><br>My creative side is inspired by alternative and indie films, especially those with unique atmospheres, and my lifelong passions include horror movies and gothic literature.<br><br>Oh, and I share my life with some quirky companions: curious cats and an exotic carnivorous fish that always sparks curiosity among visitors!<br><br>Each project I undertake carries a bit of these interests, as I believe incredible websites should have heart and soul."></span>
+      <span
+        data-pt="Oi, eu sou a Catarina!<br><br>Desenvolver sites para mim é mais do que uma profissão é uma forma gostosa de expressar minha criatividade e me conectar com pessoas.<br><br>Amo criar experiências digitais bonitas, intuitivas e, principalmente, divertidas.<br><br>Fora do universo da programação, você provavelmente vai me encontrar pedalando por aí, viajando para conhecer lugares novos ou curtindo parques de diversões.<br><br>Minha inspiração vem de filmes alternativos e indies, especialmente aqueles com atmosferas diferentes, além de filmes de terror e literatura gótica, paixões que carrego comigo desde sempre.<br><br>Ah, e eu divido minha vida com alguns companheiros peculiares: gatos curiosos e um peixe carnívoro cheio de personalidade, que sempre gera curiosidade nas visitas!<br><br>Em cada projeto que faço, coloco um pouco dessas coisas que amo, pois acredito que sites incríveis precisam de essência e alma."
+        data-en="Hi, I'm Catarina!<br><br>Building websites is more than just a profession—it's a delightful way to express my creativity and connect with people.<br><br>I love crafting digital experiences that are beautiful, intuitive, and above all, fun.<br><br>Outside the coding world, you'll probably find me cycling around, traveling to discover new places, or enjoying amusement parks.<br><br>My inspiration comes from alternative and indie films, especially those with unique atmospheres, as well as horror movies and gothic literature—passions I've carried with me forever.<br><br>Oh, and I share my life with some quirky companions: curious cats and an exotic carnivorous fish that always sparks curiosity among visitors!<br><br>In every project, I weave in a bit of what I love, because I believe incredible websites need soul and essence.">
+      </span>
     </p>
   </div>
 
@@ -62,15 +67,14 @@
     </div>
 
     <div class="skill">
-      <h3 data-pt="Java Script" data-en="Java Script">Java Script</h3>
-      <p data-pt="Experiência no desenvolvimento em Java Script, focando em construir aplicações robustas e escaláveis." data-en="Experience in Java development, focusing on building robust and scalable applications."></p>
+      <h3 data-pt="JavaScript" data-en="JavaScript">JavaScript</h3>
+      <p data-pt="Experiência no desenvolvimento em JavaScript, focando em construir aplicações robustas e escaláveis." data-en="Experience in JavaScript development, focusing on building robust and scalable applications."></p>
     </div>
 
     <div class="skill">
       <h3 data-pt="AWS Lambda" data-en="AWS Lambda">AWS Lambda</h3>
-      <p data-pt="Proficiente no uso do AWS Lambda para computação serverless, permitindo aplicações baseadas em eventos sem gerenciamento de servidores." data-en="Proficient in using AWS Lambda for serverless computing, allowing for event-driven applications without server management."></p>
+      <p data-pt="Proficiente no uso do AWS Lambda para computação serverless, permitindo aplicações baseadas em eventos sem gerenciamento de servidores." data-en="Proficient in using AWS Lambda for serverless computing, enabling event-driven applications without server management."></p>
     </div>
-
 
     <div class="skill">
       <h3 data-pt="Soft Skills" data-en="Soft Skills">Soft Skills</h3>
@@ -80,32 +84,37 @@
 
   <div class="projects-container">
     <h1 class="projects" data-pt="Meus Projetos" data-en="My Projects">My Projects</h1>
-    
+
     <div class="project">
       <a href="https://magvel.com.br/" target="_blank">
         <div class="project-content">
-          <img src="./assets/features/Captura_de_tela_2024-10-28_142235-removebg-preview.png" alt="Magvel Project" class="project-image">
+          <img src="./assets/features/Captura_de_tela_2024-10-28_142235-removebg-preview.png"
+               alt="Magvel Project"
+               class="project-image">
           <div class="project-description">
             <h3 data-pt="Magvel" data-en="Magvel">Magvel</h3>
-            <p data-pt="Projeto profissional para uma empresa de manutenção de veículos elétricos." data-en="Professional project for a company that offers electric vehicle maintenance."></p>
+            <p data-pt="Projeto profissional para uma empresa de manutenção de veículos elétricos."
+               data-en="Professional project for an electric vehicle maintenance company."></p>
           </div>
         </div>
       </a>
     </div>
-       
+
+    <!-- Se quiser outros projetos, duplique este bloco .project -->
+
     <div class="contact-button">
-      <a href="mailto:catarinaneedsajob@gmail.com" class="btn btn-primary" data-pt="Entrar em contato" data-en="Contact Me">Contact Me</a>
+      <a href="mailto:catarinaneedsajob@gmail.com" class="btn btn-primary"
+         data-pt="Entrar em contato" data-en="Contact Me">
+        Contact Me
+      </a>
     </div>
 
     <footer class="footer">
-      <footer>
-        <p data-pt="Criado com carinho por mim ❤️" data-en="Made with love by me ❤️">Made with love by me ❤️</p>
-        <p data-pt="Catarina Costa Andrade" data-en="Catarina Costa Andrade">Catarina Costa Andrade</p>
-      </footer>
+      <p data-pt="Criado com carinho por mim ❤️" data-en="Made with love by me ❤️">Made with love by me ❤️</p>
+      <p data-pt="Catarina Costa Andrade" data-en="Catarina Costa Andrade">Catarina Costa Andrade</p>
     </footer>
   </div>
-  
-  <!-- Inclui o script separado -->
+
   <script src="script.js"></script>
 </body>
 </html>
