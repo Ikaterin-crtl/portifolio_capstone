@@ -118,6 +118,7 @@ body {
     color: #B336FF;
     margin-bottom: 2rem;
   }
+  
   .project {
     width: 100%;
     max-width: 1200px;
@@ -288,3 +289,8 @@ body.light-off {
     text-shadow: none !important;
   }
   
+  @media (min-width: 701px) {
+  #magvelProject .project-content {
+    margin-left: 2rem;
+  }
+}
